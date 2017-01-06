@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		424B93E71E2049820071E42C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93E61E2049820071E42C /* AppDelegate.swift */; };
+		424B93E91E2049820071E42C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93E81E2049820071E42C /* ViewController.swift */; };
+		424B93EC1E2049820071E42C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424B93EA1E2049820071E42C /* Main.storyboard */; };
+		424B93EE1E2049820071E42C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424B93ED1E2049820071E42C /* Assets.xcassets */; };
+		424B93F11E2049820071E42C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424B93EF1E2049820071E42C /* LaunchScreen.storyboard */; };
+		424B93FC1E2049820071E42C /* PositivityTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93FB1E2049820071E42C /* PositivityTrackerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		424B93F81E2049820071E42C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 424B93DB1E2049810071E42C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 424B93E21E2049810071E42C;
+			remoteInfo = PositivityTracker;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		424B93E31E2049820071E42C /* PositivityTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PositivityTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		424B93E61E2049820071E42C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		424B93E81E2049820071E42C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		424B93EB1E2049820071E42C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		424B93ED1E2049820071E42C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		424B93F01E2049820071E42C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		424B93F21E2049820071E42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		424B93F71E2049820071E42C /* PositivityTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PositivityTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		424B93FB1E2049820071E42C /* PositivityTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositivityTrackerTests.swift; sourceTree = "<group>"; };
+		424B93FD1E2049820071E42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		424B93E01E2049810071E42C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		424B93F41E2049820071E42C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		424B93DA1E2049810071E42C = {
+			isa = PBXGroup;
+			children = (
+				424B93E51E2049820071E42C /* PositivityTracker */,
+				424B93FA1E2049820071E42C /* PositivityTrackerTests */,
+				424B93E41E2049820071E42C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		424B93E41E2049820071E42C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				424B93E31E2049820071E42C /* PositivityTracker.app */,
+				424B93F71E2049820071E42C /* PositivityTrackerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		424B93E51E2049820071E42C /* PositivityTracker */ = {
+			isa = PBXGroup;
+			children = (
+				424B93E61E2049820071E42C /* AppDelegate.swift */,
+				424B93E81E2049820071E42C /* ViewController.swift */,
+				424B93EA1E2049820071E42C /* Main.storyboard */,
+				424B93ED1E2049820071E42C /* Assets.xcassets */,
+				424B93EF1E2049820071E42C /* LaunchScreen.storyboard */,
+				424B93F21E2049820071E42C /* Info.plist */,
+			);
+			path = PositivityTracker;
+			sourceTree = "<group>";
+		};
+		424B93FA1E2049820071E42C /* PositivityTrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				424B93FB1E2049820071E42C /* PositivityTrackerTests.swift */,
+				424B93FD1E2049820071E42C /* Info.plist */,
+			);
+			path = PositivityTrackerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		424B93E21E2049810071E42C /* PositivityTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 424B94001E2049820071E42C /* Build configuration list for PBXNativeTarget "PositivityTracker" */;
+			buildPhases = (
+				424B93DF1E2049810071E42C /* Sources */,
+				424B93E01E2049810071E42C /* Frameworks */,
+				424B93E11E2049810071E42C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PositivityTracker;
+			productName = PositivityTracker;
+			productReference = 424B93E31E2049820071E42C /* PositivityTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+		424B93F61E2049820071E42C /* PositivityTrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 424B94031E2049820071E42C /* Build configuration list for PBXNativeTarget "PositivityTrackerTests" */;
+			buildPhases = (
+				424B93F31E2049820071E42C /* Sources */,
+				424B93F41E2049820071E42C /* Frameworks */,
+				424B93F51E2049820071E42C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				424B93F91E2049820071E42C /* PBXTargetDependency */,
+			);
+			name = PositivityTrackerTests;
+			productName = PositivityTrackerTests;
+			productReference = 424B93F71E2049820071E42C /* PositivityTrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		424B93DB1E2049810071E42C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Kevin Tang";
+				TargetAttributes = {
+					424B93E21E2049810071E42C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = VEY3LXD9KY;
+						ProvisioningStyle = Automatic;
+					};
+					424B93F61E2049820071E42C = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 424B93E21E2049810071E42C;
+					};
+				};
+			};
+			buildConfigurationList = 424B93DE1E2049810071E42C /* Build configuration list for PBXProject "PositivityTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 424B93DA1E2049810071E42C;
+			productRefGroup = 424B93E41E2049820071E42C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				424B93E21E2049810071E42C /* PositivityTracker */,
+				424B93F61E2049820071E42C /* PositivityTrackerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		424B93E11E2049810071E42C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424B93F11E2049820071E42C /* LaunchScreen.storyboard in Resources */,
+				424B93EE1E2049820071E42C /* Assets.xcassets in Resources */,
+				424B93EC1E2049820071E42C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		424B93F51E2049820071E42C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		424B93DF1E2049810071E42C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424B93E91E2049820071E42C /* ViewController.swift in Sources */,
+				424B93E71E2049820071E42C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		424B93F31E2049820071E42C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				424B93FC1E2049820071E42C /* PositivityTrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		424B93F91E2049820071E42C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 424B93E21E2049810071E42C /* PositivityTracker */;
+			targetProxy = 424B93F81E2049820071E42C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		424B93EA1E2049820071E42C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				424B93EB1E2049820071E42C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		424B93EF1E2049820071E42C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				424B93F01E2049820071E42C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		424B93FE1E2049820071E42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		424B93FF1E2049820071E42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		424B94011E2049820071E42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VEY3LXD9KY;
+				INFOPLIST_FILE = PositivityTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.PositivityTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		424B94021E2049820071E42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = VEY3LXD9KY;
+				INFOPLIST_FILE = PositivityTracker/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.PositivityTracker;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		424B94041E2049820071E42C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PositivityTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.PositivityTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PositivityTracker.app/PositivityTracker";
+			};
+			name = Debug;
+		};
+		424B94051E2049820071E42C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PositivityTrackerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.PositivityTrackerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PositivityTracker.app/PositivityTracker";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		424B93DE1E2049810071E42C /* Build configuration list for PBXProject "PositivityTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424B93FE1E2049820071E42C /* Debug */,
+				424B93FF1E2049820071E42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		424B94001E2049820071E42C /* Build configuration list for PBXNativeTarget "PositivityTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424B94011E2049820071E42C /* Debug */,
+				424B94021E2049820071E42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		424B94031E2049820071E42C /* Build configuration list for PBXNativeTarget "PositivityTrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				424B94041E2049820071E42C /* Debug */,
+				424B94051E2049820071E42C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 424B93DB1E2049810071E42C /* Project object */;
+}
