@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42144A191E22E8150006D486 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42144A181E22E8150006D486 /* JournalEntry.swift */; };
+		42144A1B1E22EE8E0006D486 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */; };
+		42144A1F1E22F0ED0006D486 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42144A1E1E22F0ED0006D486 /* EntryTableViewController.swift */; };
 		424B93E71E2049820071E42C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93E61E2049820071E42C /* AppDelegate.swift */; };
-		424B93E91E2049820071E42C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93E81E2049820071E42C /* ViewController.swift */; };
+		424B93E91E2049820071E42C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93E81E2049820071E42C /* MainViewController.swift */; };
 		424B93EC1E2049820071E42C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424B93EA1E2049820071E42C /* Main.storyboard */; };
 		424B93EE1E2049820071E42C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 424B93ED1E2049820071E42C /* Assets.xcassets */; };
 		424B93F11E2049820071E42C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424B93EF1E2049820071E42C /* LaunchScreen.storyboard */; };
@@ -26,9 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42144A181E22E8150006D486 /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
+		42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
+		42144A1E1E22F0ED0006D486 /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
 		424B93E31E2049820071E42C /* PositivityTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PositivityTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424B93E61E2049820071E42C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		424B93E81E2049820071E42C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		424B93E81E2049820071E42C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		424B93EB1E2049820071E42C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		424B93ED1E2049820071E42C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		424B93F01E2049820071E42C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,8 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				424B93E61E2049820071E42C /* AppDelegate.swift */,
-				424B93E81E2049820071E42C /* ViewController.swift */,
+				42144A181E22E8150006D486 /* JournalEntry.swift */,
 				424B93EA1E2049820071E42C /* Main.storyboard */,
+				424B93E81E2049820071E42C /* MainViewController.swift */,
+				42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */,
+				42144A1E1E22F0ED0006D486 /* EntryTableViewController.swift */,
 				424B93ED1E2049820071E42C /* Assets.xcassets */,
 				424B93EF1E2049820071E42C /* LaunchScreen.storyboard */,
 				424B93F21E2049820071E42C /* Info.plist */,
@@ -200,7 +209,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				424B93E91E2049820071E42C /* ViewController.swift in Sources */,
+				42144A1B1E22EE8E0006D486 /* EntryTableViewCell.swift in Sources */,
+				42144A191E22E8150006D486 /* JournalEntry.swift in Sources */,
+				424B93E91E2049820071E42C /* MainViewController.swift in Sources */,
+				42144A1F1E22F0ED0006D486 /* EntryTableViewController.swift in Sources */,
 				424B93E71E2049820071E42C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +421,7 @@
 				424B94021E2049820071E42C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		424B94031E2049820071E42C /* Build configuration list for PBXNativeTarget "PositivityTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +430,7 @@
 				424B94051E2049820071E42C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
