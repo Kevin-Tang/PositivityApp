@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class EntryTableViewController: UITableViewController {
     
@@ -16,14 +17,25 @@ class EntryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load the sample data.
-        loadExampleEntries()
+        // Load any saved meals, otherwise load sample data.
+        if let savedJournal = loadJournals() {
+            journalEntries += savedJournal
+        }
+        else {
+            // Load the sample data.
+            loadExampleEntries()
+        }
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,30 +68,32 @@ class EntryTableViewController: UITableViewController {
 
         cell.messageLabel.text = entry.message
         cell.dateLabel.text = entry.date
-        
+        cell.countLabel.text = "Positive Streak: " + String(entry.count)
         return cell
     }
     
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            journalEntries.remove(at: indexPath.row)
+            saveJournal()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -111,6 +125,23 @@ class EntryTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK: Actions
+    @IBAction func shareButton(_ sender: UIBarButtonItem) {
+        // text to share
+        let text = "My latest Positive Moment I just tracked: " + journalEntries[journalEntries.count - 1].message
+        
+        // set up activity view controller
+        let textToShare = [ text ]
+        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // exclude some activity types from the list (optional)
+        activityViewController.excludedActivityTypes = []
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    
     
     //MARK: Private Methods
     
@@ -123,19 +154,33 @@ class EntryTableViewController: UITableViewController {
         let date2 = "December 25, 2016"
         let date3 = "January 1, 2017"
         
-        guard let journal1 = JournalEntry(message: entry1, date: date1) else {
+        guard let journal1 = JournalEntry(message: entry1, date: date1, count: 20) else {
             fatalError("Unable to instantiate journal1")
         }
         
-        guard let journal2 = JournalEntry(message: entry2, date: date2) else {
+        guard let journal2 = JournalEntry(message: entry2, date: date2, count: 25) else {
             fatalError("Unable to instantiate journal2")
         }
         
-        guard let journal3 = JournalEntry(message: entry3, date: date3) else {
+        guard let journal3 = JournalEntry(message: entry3, date: date3, count: 1) else {
             fatalError("Unable to instantiate journal3")
         }
         
         journalEntries += [journal1, journal2, journal3]
+    }
+    
+    private func saveJournal() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(journalEntries, toFile: JournalEntry.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("Journal successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save journals...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    private func loadJournals() -> [JournalEntry]?  {
+        return NSKeyedUnarchiver.unarchiveObject(withFile: JournalEntry.ArchiveURL.path) as? [JournalEntry]
     }
 
 }

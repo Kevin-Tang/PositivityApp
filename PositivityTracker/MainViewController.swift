@@ -14,6 +14,7 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     var count: Int = 0
     var entry: JournalEntry?
@@ -22,12 +23,12 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         messageTextField.delegate = self
         countLabel.text = String(count)
+        dateLabel.text = getDate()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +54,16 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     //MARK: Actions
     @IBAction func incrementCount(_ sender: UIButton) {
         count += 1
-        countLabel.text = String(count)
+        countLabel.text = "Positive Streak: " + String(count)
+    }
+    
+    //MARK: Private Methods
+    private func getDate() -> String {
+        let date = NSDate()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .full
+        dateFormatter.timeStyle = .none
+        let dateReturned = dateFormatter.string(from: date as Date)
+        return dateReturned
     }
 }
