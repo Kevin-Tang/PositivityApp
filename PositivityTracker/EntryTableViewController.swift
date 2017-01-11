@@ -13,6 +13,7 @@ class EntryTableViewController: UITableViewController {
     
     //MARK: Properties
     var journalEntries = [JournalEntry]()
+    let detailSegueIdentifier = "ShowDetailSegue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,17 @@ class EntryTableViewController: UITableViewController {
             // Load the sample data.
             loadExampleEntries()
         }
-
+        
+        tableView.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -69,6 +74,8 @@ class EntryTableViewController: UITableViewController {
         cell.messageLabel.text = entry.message
         cell.dateLabel.text = entry.date
         cell.countLabel.text = "Positive Streak: " + String(entry.count)
+        
+        
         return cell
     }
     
@@ -125,6 +132,15 @@ class EntryTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if (segue.identifier == detailSegueIdentifier) {
+            let destination = segue.destination as? DetailViewController
+            let cellIndex = tableView.indexPathForSelectedRow?.row
+            destination?.messageLine = journalEntries[cellIndex!].message
+        }
+    }
+
+    
     //MARK: Actions
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
         // text to share
@@ -146,7 +162,7 @@ class EntryTableViewController: UITableViewController {
     //MARK: Private Methods
     
     private func loadExampleEntries() {
-        let entry1 = "Today was a wonderful day because I petted a strangeer's dog!"
+        let entry1 = "Today was a wonderful day because I petted a stranger's dog!"
         let entry2 = "It was a nice 70 degrees!"
         let entry3 = "Work was surprisingly therapeutic"
         

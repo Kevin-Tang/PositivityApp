@@ -50,27 +50,6 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         messageLabel.text = textField.text
     }
     
-    //MARK: Navigations
-    /*
-    // This method lets you configure a view controller before it's presented.
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        
-        // Configure the destination view controller only when the save button is pressed.
-        guard let button = sender as? UIButton, button === addJournal else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            return
-        }
-        
-        let message = messageTextField.text ?? ""
-        let date = dateLabel.text
-        let count = Int(countLabel.text!)
-        
-        // Set the meal to be passed to MealTableViewController after the unwind segue.
-        entry = JournalEntry(message: message, date: date!, count: count!)
-    }
-    */
-    
     //MARK: Actions
     @IBAction func incrementCount(_ sender: UIButton) {
         count += 1

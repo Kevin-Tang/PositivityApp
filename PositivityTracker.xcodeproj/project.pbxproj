@@ -16,6 +16,7 @@
 		424B93F11E2049820071E42C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424B93EF1E2049820071E42C /* LaunchScreen.storyboard */; };
 		424B93FC1E2049820071E42C /* PositivityTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93FB1E2049820071E42C /* PositivityTrackerTests.swift */; };
 		4293AD031E24ABF60075210B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4293AD011E24ABF60075210B /* Main.storyboard */; };
+		4293AD071E2594BA0075210B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293AD061E2594BA0075210B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		424B93FB1E2049820071E42C /* PositivityTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositivityTrackerTests.swift; sourceTree = "<group>"; };
 		424B93FD1E2049820071E42C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4293AD021E24ABF60075210B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4293AD061E2594BA0075210B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				4293AD011E24ABF60075210B /* Main.storyboard */,
+				4293AD061E2594BA0075210B /* DetailViewController.swift */,
 				424B93E61E2049820071E42C /* AppDelegate.swift */,
 				42144A181E22E8150006D486 /* JournalEntry.swift */,
 				424B93E81E2049820071E42C /* MainViewController.swift */,
@@ -212,6 +215,7 @@
 				42144A1B1E22EE8E0006D486 /* EntryTableViewCell.swift in Sources */,
 				42144A191E22E8150006D486 /* JournalEntry.swift in Sources */,
 				424B93E91E2049820071E42C /* MainViewController.swift in Sources */,
+				4293AD071E2594BA0075210B /* DetailViewController.swift in Sources */,
 				42144A1F1E22F0ED0006D486 /* EntryTableViewController.swift in Sources */,
 				424B93E71E2049820071E42C /* AppDelegate.swift in Sources */,
 			);
