@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var addJournal: UIButton!
+    @IBOutlet var addJournal: UIButton!
     
     var count: Int = 0
     var entry: JournalEntry?
@@ -50,11 +50,40 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         messageLabel.text = textField.text
     }
     
+    //MARK: Navigations
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addJournalSegue" {
+            let nav = segue.destination as! UINavigationController
+            let entryView = nav.topViewController as! EntryTableViewController
+            
+            let message = messageLabel.text
+            let date = dateLabel.text
+            let count = self.count
+            
+            entry = JournalEntry(message: message!, date: date!, count: count)
+            
+            entryView.newEntry = entry
+            // print((entryView.newEntry?.message)! + (entryView.newEntry?.date)! + String(describing: entryView.newEntry?.count))
+
+        }
+        /*
+        guard let button = sender as? UIButton, button === addJournal else {
+            os_log("The add journal button was not pressed, canceling", log: OSLog.default, type: .debug)
+            return
+        }
+        */
+        
+
+    }
+    
     //MARK: Actions
     @IBAction func incrementCount(_ sender: UIButton) {
         count += 1
         countLabel.text = "Positive Streak: " + String(count)
     }
+
+    
     
     //MARK: Private Methods
     private func getDate() -> String {

@@ -11,9 +11,13 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var messageLine = String()
+    var dateLine = String()
+    var countLine: Int = 0
     
     //MARK: Properties
     @IBOutlet var detailMessageLabel: UILabel!
+    @IBOutlet var detailDateLabel: UILabel!
+    @IBOutlet var detailCountLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -24,6 +28,8 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         detailMessageLabel.text = messageLine
+        detailDateLabel.text = dateLine
+        detailCountLabel.text = "Positive Streak of this Entry: " + String(countLine) + "!!!"
     }
 
     override func didReceiveMemoryWarning() {

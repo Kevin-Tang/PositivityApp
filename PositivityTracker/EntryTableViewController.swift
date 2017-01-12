@@ -14,6 +14,7 @@ class EntryTableViewController: UITableViewController {
     //MARK: Properties
     var journalEntries = [JournalEntry]()
     let detailSegueIdentifier = "ShowDetailSegue"
+    var newEntry: JournalEntry?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class EntryTableViewController: UITableViewController {
             // Load the sample data.
             loadExampleEntries()
         }
-        
+
         tableView.delegate = self
 
         // Uncomment the following line to preserve selection between presentations
@@ -37,10 +38,14 @@ class EntryTableViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        
+        print((newEntry?.message)! + (newEntry?.date)!)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        
+        if newEntry != nil {
+            journalEntries.append(newEntry!)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -137,6 +142,8 @@ class EntryTableViewController: UITableViewController {
             let destination = segue.destination as? DetailViewController
             let cellIndex = tableView.indexPathForSelectedRow?.row
             destination?.messageLine = journalEntries[cellIndex!].message
+            destination?.dateLine = journalEntries[cellIndex!].date
+            destination?.countLine = journalEntries[cellIndex!].count
         }
     }
 
@@ -156,6 +163,15 @@ class EntryTableViewController: UITableViewController {
         
         // present the view controller
         self.present(activityViewController, animated: true, completion: nil)
+
+    }
+    
+    @IBAction func unwindToMainView(sender: UIStoryboardSegue){
+        if let sourceViewController = sender.source as? MainViewController, let entry = sourceViewController.entry{
+            let newIndexPath = IndexPath(row: journalEntries.count, section: 0)
+            journalEntries.append(entry)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
     }
     
     
