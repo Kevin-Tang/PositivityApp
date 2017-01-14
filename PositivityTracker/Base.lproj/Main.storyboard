@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kKn-3r-fbN" id="qRg-99-tw7">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Positive Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0u-et-Uwu">
@@ -89,7 +89,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="noO-zV-Pjs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2362" y="122"/>
+            <point key="canvasLocation" x="2412" y="122"/>
         </scene>
         <!--Your Entry-->
         <scene sceneID="IGl-rD-rE9">
@@ -103,12 +103,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmT-rX-XvR">
-                                <rect key="frame" x="49" y="96" width="277" height="139"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Count" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7g-Vd-5Ch">
                                 <rect key="frame" x="49" y="519" width="277" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -124,15 +118,21 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="goals" translatesAutoresizingMaskIntoConstraints="NO" id="5dg-mT-DpX">
-                                <rect key="frame" x="0.0" y="235" width="375" height="237"/>
+                                <rect key="frame" x="0.0" y="215" width="375" height="257"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmT-rX-XvR">
+                                <rect key="frame" x="49" y="80" width="277" height="139"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="XmT-rX-XvR" secondAttribute="trailing" constant="33" id="1Ng-GN-fB1"/>
-                            <constraint firstItem="XmT-rX-XvR" firstAttribute="top" secondItem="UOU-RL-6Hw" secondAttribute="bottom" constant="32" id="GQ4-TK-FWO"/>
-                            <constraint firstItem="HNf-xx-4wT" firstAttribute="top" secondItem="XmT-rX-XvR" secondAttribute="bottom" constant="388" id="HKk-nB-9g6"/>
+                            <constraint firstItem="XmT-rX-XvR" firstAttribute="top" secondItem="UOU-RL-6Hw" secondAttribute="bottom" constant="16" id="GQ4-TK-FWO"/>
+                            <constraint firstItem="HNf-xx-4wT" firstAttribute="top" secondItem="XmT-rX-XvR" secondAttribute="bottom" constant="404" id="HKk-nB-9g6"/>
                             <constraint firstItem="XmT-rX-XvR" firstAttribute="leading" secondItem="snH-As-ZjN" secondAttribute="leadingMargin" constant="33" id="dLo-XS-Gem"/>
                         </constraints>
                     </view>
@@ -151,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IMP-4t-T0T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3177" y="122"/>
+            <point key="canvasLocation" x="3176.8000000000002" y="121.88905547226388"/>
         </scene>
         <!--Positivity Tracker-->
         <scene sceneID="tne-QT-ifu">
@@ -257,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757.60000000000002" y="122.78860569715144"/>
+            <point key="canvasLocation" x="833" y="122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y9S-E9-lXk">

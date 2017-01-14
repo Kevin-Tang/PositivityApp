@@ -27,6 +27,7 @@ class EntryTableViewController: UITableViewController {
             // Load the sample data.
             loadExampleEntries()
         }
+        
         if newEntry != nil {
             journalEntries.append(newEntry!)
             saveJournal()
@@ -41,6 +42,7 @@ class EntryTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        // Adjust each table cell to fit the length of the text
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
     }
@@ -50,9 +52,6 @@ class EntryTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if newEntry != nil {
-            journalEntries.append(newEntry!)
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,7 +59,7 @@ class EntryTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
+    //MARK: Table View data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -72,6 +71,7 @@ class EntryTableViewController: UITableViewController {
     }
 
     
+    // This function populates the table with custom class cell Journal Entry
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "EntryTableViewCell"
@@ -87,7 +87,6 @@ class EntryTableViewController: UITableViewController {
         cell.dateLabel.text = entry.date
         cell.countLabel.text = "Positive Streak: " + String(entry.count)
         
-        
         return cell
     }
     
@@ -102,6 +101,7 @@ class EntryTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
+    // This function allows users to swipe left to delete objects in the table
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
@@ -145,6 +145,7 @@ class EntryTableViewController: UITableViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    // This function passes data along to the detailView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if (segue.identifier == detailSegueIdentifier) {
             let destination = segue.destination as? DetailViewController
@@ -158,17 +159,9 @@ class EntryTableViewController: UITableViewController {
     
     //MARK: Actions
     
-    @IBAction func unwindToMainView(sender: UIStoryboardSegue){
-        if let sourceViewController = sender.source as? MainViewController, let entry = sourceViewController.entry{
-            let newIndexPath = IndexPath(row: journalEntries.count, section: 0)
-            journalEntries.append(entry)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
-        }
-    }
-    
-    
     //MARK: Private Methods
     
+    //This function loads example entries if there isn't any entries saved on the device
     private func loadExampleEntries() {
         let entry1 = "Today was a wonderful day because I petted a stranger's dog!"
         let entry2 = "It was a nice 70 degrees!"
@@ -193,6 +186,7 @@ class EntryTableViewController: UITableViewController {
         journalEntries += [journal1, journal2, journal3]
     }
     
+    // This function saves the array of journalEntries to device
     private func saveJournal() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(journalEntries, toFile: JournalEntry.ArchiveURL.path)
         

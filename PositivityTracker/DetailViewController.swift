@@ -10,15 +10,14 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    var messageLine = String()
-    var dateLine = String()
-    var countLine: Int = 0
-    
     //MARK: Properties
     @IBOutlet var detailMessageLabel: UILabel!
     @IBOutlet var detailDateLabel: UILabel!
     @IBOutlet var detailCountLabel: UILabel!
     
+    var messageLine = String()
+    var dateLine = String()
+    var countLine: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +39,7 @@ class DetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        // Animates the labels onto the screen
         UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
             self.detailMessageLabel.alpha = 1
             self.detailDateLabel.center.x += self.view.bounds.width
@@ -66,19 +66,20 @@ class DetailViewController: UIViewController {
     
     //MARK: Actions
     
+    // This functoin creates a share button to share the journal entry
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
-        // text to share
-        let text = "My latest Positive Moment I just tracked: " + messageLine
+        // Text to share
+        let text = "My Positive Moment I just tracked is " + messageLine + " and my Positive Streak is " + String(countLine) + "!!!"
         
-        // set up activity view controller
+        // Set up activity view controller
         let textToShare = [ text ]
         let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
         
-        // exclude some activity types from the list (optional)
+        // Exclude some activity types from the list (optional)
         activityViewController.excludedActivityTypes = []
         
-        // present the view controller
+        // Present the view controller
         self.present(activityViewController, animated: true, completion: nil)
     }
     

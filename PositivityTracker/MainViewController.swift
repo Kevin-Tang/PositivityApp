@@ -24,12 +24,17 @@ class MainViewController: UIViewController, UITextFieldDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        count = UserDefaults.standard.integer(forKey: "Count")
+        count = UserDefaults.standard.integer(forKey: "Count") // This sets the count to a stored value on the device
         messageTextField.delegate = self
         countLabel.text = "Positive Streak: " + String(count)
         dateLabel.text = getDate()
         
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        // Observers for keyboard showing and hiding
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +46,7 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     }
     
     //MARK: UITextFieldDelegate
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the Keyboard
         textField.resignFirstResponder()
@@ -52,8 +57,19 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         messageLabel.text = textField.text
     }
     
+    func keyboardWillShow(sender: NSNotification) {
+        self.view.frame.origin.y = -150
+        addCount.isEnabled = false
+    }
+    
+    func keyboardWillHide(sender: NSNotification) {
+        self.view.frame.origin.y = 0
+        addCount.isEnabled = true
+    }
+    
     //MARK: Navigations
     
+    // This function passes information along to the next view in order to build a new object in the table
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addJournalSegue" {
             let nav = segue.destination as! UINavigationController
@@ -66,17 +82,7 @@ class MainViewController: UIViewController, UITextFieldDelegate{
             entry = JournalEntry(message: message!, date: date!, count: count)
             
             entryView.newEntry = entry
-            // print((entryView.newEntry?.message)! + (entryView.newEntry?.date)! + String(describing: entryView.newEntry?.count))
-
         }
-        /*
-        guard let button = sender as? UIButton, button === addJournal else {
-            os_log("The add journal button was not pressed, canceling", log: OSLog.default, type: .debug)
-            return
-        }
-        */
-        
-
     }
     
     //MARK: Actions
@@ -85,15 +91,17 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         countLabel.text = "Positive Streak: " + String(count)
         UserDefaults.standard.set(count, forKey: "Count")
         
-        UIView.animate(withDuration: 0.2, animations: {
+        // Animates the button when pressed
+        UIView.animate(withDuration: 0.3, animations: {
             self.addCount.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
         }, completion: { (finish) in
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 self.addCount.transform = CGAffineTransform.identity
             })
         })
     }
 
+    // Resets the count and stores the value on the device
     @IBAction func resetCount(_ sender: UIButton) {
         count = 0
         countLabel.text = "Positive Streak: " + String(count)
@@ -110,22 +118,4 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         let dateReturned = dateFormatter.string(from: date as Date)
         return dateReturned
     }
-        
-    
-    /*
-     private func saveJournal() {
-     let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(journalEntries, toFile: JournalEntry.ArchiveURL.path)
-     
-     if isSuccessfulSave {
-     os_log("Journal successfully saved.", log: OSLog.default, type: .debug)
-     } else {
-     os_log("Failed to save journals...", log: OSLog.default, type: .error)
-     }
-     }
-     
-     private func loadJournals() -> [JournalEntry]?  {
-     return NSKeyedUnarchiver.unarchiveObject(withFile: JournalEntry.ArchiveURL.path) as? [JournalEntry]
-     }
-
-    */
 }
