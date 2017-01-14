@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import os.log
+import os
 
 class MainViewController: UIViewController, UITextFieldDelegate{
     
@@ -17,12 +17,14 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var addJournal: UIButton!
+    @IBOutlet weak var addCount: UIButton!
     
     var count: Int = 0
     var entry: JournalEntry?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        count = UserDefaults.standard.integer(forKey: "Count")
         messageTextField.delegate = self
         countLabel.text = "Positive Streak: " + String(count)
         dateLabel.text = getDate()
@@ -81,10 +83,24 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     @IBAction func incrementCount(_ sender: UIButton) {
         count += 1
         countLabel.text = "Positive Streak: " + String(count)
+        UserDefaults.standard.set(count, forKey: "Count")
+        
+        UIView.animate(withDuration: 0.2, animations: {
+            self.addCount.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
+        }, completion: { (finish) in
+            UIView.animate(withDuration: 0.2, animations: {
+                self.addCount.transform = CGAffineTransform.identity
+            })
+        })
     }
 
+    @IBAction func resetCount(_ sender: UIButton) {
+        count = 0
+        countLabel.text = "Positive Streak: " + String(count)
+        UserDefaults.standard.set(count, forKey: "Count")
+    }
     
-    
+
     //MARK: Private Methods
     private func getDate() -> String {
         let date = NSDate()
@@ -94,4 +110,22 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         let dateReturned = dateFormatter.string(from: date as Date)
         return dateReturned
     }
+        
+    
+    /*
+     private func saveJournal() {
+     let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(journalEntries, toFile: JournalEntry.ArchiveURL.path)
+     
+     if isSuccessfulSave {
+     os_log("Journal successfully saved.", log: OSLog.default, type: .debug)
+     } else {
+     os_log("Failed to save journals...", log: OSLog.default, type: .error)
+     }
+     }
+     
+     private func loadJournals() -> [JournalEntry]?  {
+     return NSKeyedUnarchiver.unarchiveObject(withFile: JournalEntry.ArchiveURL.path) as? [JournalEntry]
+     }
+
+    */
 }

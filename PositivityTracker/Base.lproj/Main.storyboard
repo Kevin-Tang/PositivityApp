@@ -79,15 +79,9 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Journal" id="jOV-2z-hKb">
-                        <barButtonItem key="backBarButtonItem" title="Home" id="cn4-Op-2yi"/>
                         <barButtonItem key="leftBarButtonItem" title="Home" id="bBM-IC-R9d">
                             <connections>
                                 <action selector="home:" destination="ehm-un-DzX" id="hX3-xI-QgL"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="fbE-wz-91b">
-                            <connections>
-                                <action selector="shareButton:" destination="ehm-un-DzX" id="jsW-tO-iF5"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -143,7 +137,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Entry" id="oZT-R7-lfJ">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="mdB-mI-q4f"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="fbE-wz-91b">
+                            <connections>
+                                <action selector="shareButton:" destination="dZP-yf-ysp" id="dVX-4I-8XW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailCountLabel" destination="i7g-Vd-5Ch" id="jjZ-cD-dEG"/>
@@ -155,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="3177" y="122"/>
         </scene>
-        <!--Positvity Tracker-->
+        <!--Positivity Tracker-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PositivityTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -167,7 +165,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="hello, World!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDT-cZ-new">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="How are you today?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KDT-cZ-new">
                                 <rect key="frame" x="23" y="79" width="328" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
@@ -198,9 +196,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Aj-Xy-CQI">
                                 <rect key="frame" x="23" y="177" width="328" height="328"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.66049260449984259" green="1" blue="0.62503406670566619" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleColor" red="0.17982316380513608" green="0.14845105083798626" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="50"/>
+                                <state key="normal" title="Tap Me!">
+                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -213,22 +212,34 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtV-XS-6TH">
-                                <rect key="frame" x="94" y="575" width="187" height="47"/>
+                                <rect key="frame" x="94" y="566" width="187" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration" identifier="AddJournal"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Add Journal Entry">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <segue destination="8Co-g3-7GD" kind="show" identifier="addJournalSegue" id="K4X-nI-Dfa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz9-5v-atW">
+                                <rect key="frame" x="295" y="566" width="56" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Reset ">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mWs-0b-Mv3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Positvity Tracker" id="0Qw-pH-sEU">
+                    <navigationItem key="navigationItem" title="Positivity Tracker" id="0Qw-pH-sEU">
                         <barButtonItem key="rightBarButtonItem" title="Journal" id="Vuk-fw-nnQ">
                             <connections>
                                 <segue destination="8Co-g3-7GD" kind="show" id="oBz-Zg-Nmc"/>
@@ -236,6 +247,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addCount" destination="6Aj-Xy-CQI" id="adb-OJ-i2F"/>
                         <outlet property="addJournal" destination="gtV-XS-6TH" id="Pxv-zB-tdO"/>
                         <outlet property="countLabel" destination="as2-Za-3Xo" id="enB-PQ-sM3"/>
                         <outlet property="dateLabel" destination="4io-63-Qbs" id="Gvg-iQ-3ta"/>

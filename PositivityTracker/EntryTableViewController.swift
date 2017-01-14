@@ -19,7 +19,7 @@ class EntryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Load any saved meals, otherwise load sample data.
+        // Load any saved entries, otherwise load sample data.
         if let savedJournal = loadJournals() {
             journalEntries += savedJournal
         }
@@ -27,8 +27,13 @@ class EntryTableViewController: UITableViewController {
             // Load the sample data.
             loadExampleEntries()
         }
+        if newEntry != nil {
+            journalEntries.append(newEntry!)
+            saveJournal()
+        }
 
         tableView.delegate = self
+        tableView.dataSource = self
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -38,8 +43,10 @@ class EntryTableViewController: UITableViewController {
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
-        
-        print((newEntry?.message)! + (newEntry?.date)!)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        animateTable()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,7 +80,7 @@ class EntryTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate journal for the data source layout.
         let entry = journalEntries[indexPath.row]
 
         cell.messageLabel.text = entry.message
@@ -103,8 +110,9 @@ class EntryTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
+        }
+     }
+    
     
 
     /*
@@ -149,22 +157,6 @@ class EntryTableViewController: UITableViewController {
 
     
     //MARK: Actions
-    @IBAction func shareButton(_ sender: UIBarButtonItem) {
-        // text to share
-        let text = "My latest Positive Moment I just tracked: " + journalEntries[journalEntries.count - 1].message
-        
-        // set up activity view controller
-        let textToShare = [ text ]
-        let activityViewController = UIActivityViewController(activityItems: textToShare, applicationActivities: nil)
-        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
-        
-        // exclude some activity types from the list (optional)
-        activityViewController.excludedActivityTypes = []
-        
-        // present the view controller
-        self.present(activityViewController, animated: true, completion: nil)
-
-    }
     
     @IBAction func unwindToMainView(sender: UIStoryboardSegue){
         if let sourceViewController = sender.source as? MainViewController, let entry = sourceViewController.entry{
@@ -214,5 +206,29 @@ class EntryTableViewController: UITableViewController {
     private func loadJournals() -> [JournalEntry]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: JournalEntry.ArchiveURL.path) as? [JournalEntry]
     }
-
+    
+    
+    private func animateTable() {
+        tableView.reloadData()
+        
+        let cells = tableView.visibleCells
+        let tableHeight: CGFloat = tableView.bounds.size.height
+        
+        for i in cells {
+            let cell: UITableViewCell = i as UITableViewCell
+            cell.transform = CGAffineTransform(translationX: 0, y: tableHeight)
+        }
+        
+        var index: Int = 0
+        
+        for a in cells {
+            let cell: UITableViewCell = a as UITableViewCell
+            UIView.animate(withDuration: 1.5, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0);
+            }, completion: nil)
+            
+            index += 1
+        }
+    }
+    
 }
