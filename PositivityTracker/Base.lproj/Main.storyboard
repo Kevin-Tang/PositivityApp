@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kKn-3r-fbN" id="qRg-99-tw7">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Positive Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0u-et-Uwu">
@@ -118,11 +118,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="goals" translatesAutoresizingMaskIntoConstraints="NO" id="5dg-mT-DpX">
-                                <rect key="frame" x="0.0" y="215" width="375" height="257"/>
+                                <rect key="frame" x="0.0" y="191" width="375" height="281"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Message" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XmT-rX-XvR">
-                                <rect key="frame" x="49" y="80" width="277" height="139"/>
+                                <rect key="frame" x="49" y="80" width="277" height="111"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="XmT-rX-XvR" secondAttribute="trailing" constant="33" id="1Ng-GN-fB1"/>
                             <constraint firstItem="XmT-rX-XvR" firstAttribute="top" secondItem="UOU-RL-6Hw" secondAttribute="bottom" constant="16" id="GQ4-TK-FWO"/>
-                            <constraint firstItem="HNf-xx-4wT" firstAttribute="top" secondItem="XmT-rX-XvR" secondAttribute="bottom" constant="404" id="HKk-nB-9g6"/>
+                            <constraint firstItem="HNf-xx-4wT" firstAttribute="top" secondItem="XmT-rX-XvR" secondAttribute="bottom" constant="432" id="HKk-nB-9g6"/>
                             <constraint firstItem="XmT-rX-XvR" firstAttribute="leading" secondItem="snH-As-ZjN" secondAttribute="leadingMargin" constant="33" id="dLo-XS-Gem"/>
                         </constraints>
                     </view>
@@ -153,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="3176.8000000000002" y="121.88905547226388"/>
         </scene>
-        <!--Positivity Tracker-->
+        <!--Positivity App-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="PositivityTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -196,10 +196,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Aj-Xy-CQI">
                                 <rect key="frame" x="23" y="177" width="328" height="328"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.22594622885429125" blue="0.39948842005076146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="50"/>
                                 <state key="normal" title="Tap Me!">
-                                    <color key="titleColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -211,35 +211,35 @@
                                     <action selector="incrementCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="b1D-gE-UVk"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtV-XS-6TH">
-                                <rect key="frame" x="94" y="566" width="187" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration" identifier="AddJournal"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Add Journal Entry">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="8Co-g3-7GD" kind="show" identifier="addJournalSegue" id="K4X-nI-Dfa"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz9-5v-atW">
-                                <rect key="frame" x="295" y="566" width="56" height="47"/>
+                                <rect key="frame" x="264" y="566" width="87" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.61661246827411165" green="0.36100752467167396" blue="0.0044910031114225963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Reset ">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="resetCount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mWs-0b-Mv3"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gtV-XS-6TH">
+                                <rect key="frame" x="23" y="566" width="222" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.48762421378024334" green="0.07479809848285586" blue="0.2698288082132671" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="AddJournal"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Add Journal Entry">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="8Co-g3-7GD" kind="show" identifier="addJournalSegue" id="K4X-nI-Dfa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Positivity Tracker" id="0Qw-pH-sEU">
+                    <navigationItem key="navigationItem" title="Positivity App" id="0Qw-pH-sEU">
                         <barButtonItem key="rightBarButtonItem" title="Journal" id="Vuk-fw-nnQ">
                             <connections>
                                 <segue destination="8Co-g3-7GD" kind="show" id="oBz-Zg-Nmc"/>
@@ -257,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="833" y="122"/>
+            <point key="canvasLocation" x="832.79999999999995" y="121.88905547226388"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y9S-E9-lXk">
