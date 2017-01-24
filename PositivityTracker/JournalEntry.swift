@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import os.log
 
 class JournalEntry: NSObject, NSCoding {

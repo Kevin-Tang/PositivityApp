@@ -92,10 +92,10 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         UserDefaults.standard.set(count, forKey: "Count")
         
         // Animates the button when pressed
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.2, animations: {
             self.addCount.transform = CGAffineTransform.identity.scaledBy(x: 0.6, y: 0.6)
         }, completion: { (finish) in
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.addCount.transform = CGAffineTransform.identity
             })
         })

@@ -153,6 +153,9 @@ class EntryTableViewController: UITableViewController {
             destination?.messageLine = journalEntries[cellIndex!].message
             destination?.dateLine = journalEntries[cellIndex!].date
             destination?.countLine = journalEntries[cellIndex!].count
+            let backItem = UIBarButtonItem()
+            backItem.title = "Back"
+            navigationItem.backBarButtonItem = backItem
         }
     }
 
@@ -217,7 +220,7 @@ class EntryTableViewController: UITableViewController {
         
         for a in cells {
             let cell: UITableViewCell = a as UITableViewCell
-            UIView.animate(withDuration: 1.4, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, animations: {
+            UIView.animate(withDuration: 2.0, delay: 0.05 * Double(index), usingSpringWithDamping: 0.8, initialSpringVelocity: 0, animations: {
                 cell.transform = CGAffineTransform(translationX: 0, y: 0);
             }, completion: nil)
             
