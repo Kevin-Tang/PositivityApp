@@ -28,7 +28,9 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         count = UserDefaults.standard.integer(forKey: "Count") // This sets the count to a stored value on the device
         messageTextField.delegate = self
         countLabel.text = "Positive Streak: " + String(count)
+        countLabel.textAlignment = NSTextAlignment.left
         dateLabel.text = getDate()
+        dateLabel.textAlignment = NSTextAlignment.right
         
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -40,6 +42,8 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         // Round Buttons
         addCount.layer.cornerRadius = addCount.frame.size.width/2
         addCount.layer.masksToBounds = true
+        addCount.titleLabel?.numberOfLines = 1
+        addCount.titleLabel?.adjustsFontSizeToFitWidth = true
         addJournal.layer.cornerRadius = 6
         resetCount.layer.cornerRadius = 6
     }
