@@ -42,7 +42,6 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         addCount.layer.masksToBounds = true
         addJournal.layer.cornerRadius = 6
         resetCount.layer.cornerRadius = 6
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -86,7 +85,7 @@ class MainViewController: UIViewController, UITextFieldDelegate{
             let message = messageLabel.text
             let date = dateLabel.text
             let count = self.count
-            
+
             entry = JournalEntry(message: message!, date: date!, count: count)
             
             entryView.newEntry = entry

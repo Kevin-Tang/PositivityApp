@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import os.log
+import os
 
 class EntryTableViewController: UITableViewController {
     
