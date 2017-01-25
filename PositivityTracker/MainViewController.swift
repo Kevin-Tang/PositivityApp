@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var addJournal: UIButton!
     @IBOutlet weak var addCount: UIButton!
+    @IBOutlet weak var resetCount: UIButton!
     
     var count: Int = 0
     var entry: JournalEntry?
@@ -35,6 +36,13 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         // Observers for keyboard showing and hiding
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: .UIKeyboardWillHide, object: nil)
+        
+        // Round Buttons
+        addCount.layer.cornerRadius = addCount.frame.size.width/2
+        addCount.layer.masksToBounds = true
+        addJournal.layer.cornerRadius = 6
+        resetCount.layer.cornerRadius = 6
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
