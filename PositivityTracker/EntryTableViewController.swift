@@ -9,12 +9,15 @@
 import UIKit
 import os
 
-class EntryTableViewController: UITableViewController {
+class EntryTableViewController: UITableViewController{
     
     //MARK: Properties
     var journalEntries = [JournalEntry]()
-    let detailSegueIdentifier = "ShowDetailSegue"
     var newEntry: JournalEntry?
+    var lat: Double?
+    var long: Double?
+    let detailSegueIdentifier = "ShowDetailSegue"
+    let mapSegueIdentifier = "ShowMapSegue"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +38,6 @@ class EntryTableViewController: UITableViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         // Adjust each table cell to fit the length of the text
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -50,15 +47,6 @@ class EntryTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         animateTable()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     //MARK: Table View data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,13 +54,13 @@ class EntryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return journalEntries.count
     }
 
     
     // This function populates the table with custom class cell Journal Entry
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "EntryTableViewCell"
         
@@ -129,23 +117,13 @@ class EntryTableViewController: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+   
     //MARK: Navigation
     @IBAction func home(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
     
-    // This function passes data along to the detailView
+    // This function passes data along to the detailView and mapView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if (segue.identifier == detailSegueIdentifier) {
             let destination = segue.destination as? DetailViewController
@@ -157,10 +135,13 @@ class EntryTableViewController: UITableViewController {
             backItem.title = "Back"
             navigationItem.backBarButtonItem = backItem
         }
+        if (segue.identifier == mapSegueIdentifier) {
+            let destination = segue.destination as? MapViewController
+            destination?.lat = lat
+            destination?.long = long
+            os_log("lat and long sent!", log: OSLog.default, type: .debug)
+        }
     }
-
-    
-    //MARK: Actions
     
     //MARK: Private Methods
     
@@ -204,6 +185,7 @@ class EntryTableViewController: UITableViewController {
         return NSKeyedUnarchiver.unarchiveObject(withFile: JournalEntry.ArchiveURL.path) as? [JournalEntry]
     }
     
+    //MARK: Animations
     
     private func animateTable() {
         tableView.reloadData()

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 import os
 
-class MainViewController: UIViewController, UITextFieldDelegate{
+class MainViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate{
     
     //MARK: Properties
     @IBOutlet weak var messageTextField: UITextField!
@@ -22,6 +24,7 @@ class MainViewController: UIViewController, UITextFieldDelegate{
     
     var count: Int = 0
     var entry: JournalEntry?
+    var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +34,6 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         countLabel.textAlignment = NSTextAlignment.left
         dateLabel.text = getDate()
         dateLabel.textAlignment = NSTextAlignment.right
-        
-        // Do any additional setup after loading the view, typically from a nib.
-        
         
         // Observers for keyboard showing and hiding
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
@@ -46,11 +46,13 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         addCount.titleLabel?.adjustsFontSizeToFitWidth = true
         addJournal.layer.cornerRadius = 6
         resetCount.layer.cornerRadius = 6
+        
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        determineCurrentLocation()
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -78,6 +80,18 @@ class MainViewController: UIViewController, UITextFieldDelegate{
         addCount.isEnabled = true
     }
     
+    //MARK: Location Manager
+    func determineCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.requestAlwaysAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+    }
+
     //MARK: Navigations
     
     // This function passes information along to the next view in order to build a new object in the table
@@ -89,10 +103,17 @@ class MainViewController: UIViewController, UITextFieldDelegate{
             let message = messageLabel.text
             let date = dateLabel.text
             let count = self.count
-
+            
             entry = JournalEntry(message: message!, date: date!, count: count)
             
             entryView.newEntry = entry
+            
+            // Stop updating location and send coordinates
+            locationManager.stopUpdatingLocation()
+            let lat = locationManager.location?.coordinate.latitude
+            let long = locationManager.location?.coordinate.longitude
+            entryView.lat = lat!
+            entryView.long = long!
         }
     }
     
