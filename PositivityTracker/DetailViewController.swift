@@ -23,12 +23,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidLayoutSubviews() {
         // Set labels off screen
         detailMessageLabel.alpha = 0.0
         detailDateLabel.center.x -= view.bounds.width
         detailCountLabel.center.x -= view.bounds.width
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         // Set label texts from table cell
         detailMessageLabel.text = messageLine
         detailDateLabel.text = dateLine

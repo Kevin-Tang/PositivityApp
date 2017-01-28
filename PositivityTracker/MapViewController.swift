@@ -40,31 +40,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
         }
         displayMap()
     }
-        
-    func displayMap() {
-        if (entry != nil) {
-            let center = CLLocationCoordinate2D(latitude: (entry?.lat)!, longitude: (entry?.long)!)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            mapView.setRegion(region, animated: true)
-            
-            // Drop a pin at user's Current Location
-            let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-            myAnnotation.coordinate = CLLocationCoordinate2DMake((entry?.lat)!, (entry?.long)!)
-            myAnnotation.title = entry?.message
-            mapView.addAnnotation(myAnnotation)
-            saveAnnotations()
-        }
-        else {
-            /*
-            // Drop a pin at user's Current Location
-            let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-            myAnnotation.coordinate = CLLocationCoordinate2DMake(44, -93);
-            myAnnotation.title = "Current Location"
-            mapView.addAnnotation(myAnnotation)
-            */
-            mapView.showAnnotations(points, animated: true)
-        }
-    }
     
     //MARK: Saving and Loading Annotations
     
@@ -112,6 +87,33 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             mapView.mapType = .standard
         }
     }
+    
+    //MARK: Map Functions
+    func displayMap() {
+        if (entry != nil) {
+            let center = CLLocationCoordinate2D(latitude: (entry?.lat)!, longitude: (entry?.long)!)
+            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            mapView.setRegion(region, animated: true)
+            
+            // Drop a pin at user's Current Location
+            let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+            myAnnotation.coordinate = CLLocationCoordinate2DMake((entry?.lat)!, (entry?.long)!)
+            myAnnotation.title = entry?.message
+            mapView.addAnnotation(myAnnotation)
+            saveAnnotations()
+        }
+        else {
+            /*
+             // Drop a pin at user's Current Location
+             let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+             myAnnotation.coordinate = CLLocationCoordinate2DMake(44, -93);
+             myAnnotation.title = "Current Location"
+             mapView.addAnnotation(myAnnotation)
+             */
+            mapView.showAnnotations(points, animated: true)
+        }
+    }
+    
     @IBAction func resetPins(_ sender: UIButton) {
         removeAllStoredAnnotations()
         _ = navigationController?.popToRootViewController(animated: true)
