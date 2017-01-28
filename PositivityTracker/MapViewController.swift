@@ -14,78 +14,106 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
 
     //MARK: Properties
     @IBOutlet var mapView: MKMapView!
-    var locationDictionary: [String: Double] = [:]
-    var locationArray: [[String:Double]] = []
-    var lat: Double?
-    var long: Double?
+    var entry: JournalEntry?
+    var annotationDictionary: [String:Any] = [:]
+    var annotationsArray: [[String:Any]] = []
+    var points: [MKPointAnnotation] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadLocations()
-        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        loadAnnotations()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if locationArray.count != 0 {
-            for dict in locationArray{
-                let annotation: MKPointAnnotation = MKPointAnnotation()
-                annotation.coordinate = CLLocationCoordinate2DMake(dict["latitude"]!, dict["longitude"]!)
-                annotation.title = "One of your locations"
-                mapView.addAnnotation(annotation)
+        if !annotationsArray.isEmpty {
+            for annotation in annotationsArray {
+                let makeAnnotation: MKPointAnnotation = MKPointAnnotation()
+                makeAnnotation.coordinate = CLLocationCoordinate2DMake(annotation["latitude"] as! CLLocationDegrees, annotation["longitude"] as! CLLocationDegrees)
+                makeAnnotation.title = annotation["message"] as? String
+                mapView.addAnnotation(makeAnnotation)
             }
         }
-        if (lat != nil) {
-            let center = CLLocationCoordinate2D(latitude: lat!, longitude: long!)
-            let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
-            mapView.setRegion(region, animated: true)
-            
-            // Drop a pin at user's Current Location
-            let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-            myAnnotation.coordinate = CLLocationCoordinate2DMake(lat!, long!);
-            myAnnotation.title = "Current location"
-            mapView.addAnnotation(myAnnotation)
-            saveLocations()
-        }
+        displayMap()
+    }
         
-        if (lat == nil) {
-            let center = CLLocationCoordinate2D(latitude: 44.9398, longitude: -93.1687)
+    func displayMap() {
+        if (entry != nil) {
+            let center = CLLocationCoordinate2D(latitude: (entry?.lat)!, longitude: (entry?.long)!)
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
             
             // Drop a pin at user's Current Location
             let myAnnotation: MKPointAnnotation = MKPointAnnotation()
-            myAnnotation.coordinate = CLLocationCoordinate2DMake(44.9398, -93.1687);
-            myAnnotation.title = "Current location"
+            myAnnotation.coordinate = CLLocationCoordinate2DMake((entry?.lat)!, (entry?.long)!)
+            myAnnotation.title = entry?.message
             mapView.addAnnotation(myAnnotation)
+            saveAnnotations()
+        }
+        else {
+            /*
+            // Drop a pin at user's Current Location
+            let myAnnotation: MKPointAnnotation = MKPointAnnotation()
+            myAnnotation.coordinate = CLLocationCoordinate2DMake(44, -93);
+            myAnnotation.title = "Current Location"
+            mapView.addAnnotation(myAnnotation)
+            */
+            mapView.showAnnotations(points, animated: true)
         }
     }
     
-    //MARK: Methods
-    func saveLocations() {
-        if !(lat?.isZero)! || !(long?.isZero)! {
-            locationDictionary["latitude"] = lat
-            locationDictionary["longitude"] = long
-            if UserDefaults.standard.object(forKey: "locationArray") != nil {
-                locationArray = UserDefaults.standard.object(forKey: "locationArray") as! [[String:Double]]
-                }
-            locationArray.append(locationDictionary)
-            UserDefaults.standard.set(locationArray, forKey: "locationArray")
+    //MARK: Saving and Loading Annotations
+    
+    func saveAnnotations() {
+        if (entry != nil) {
+            annotationDictionary["latitude"] = entry?.lat
+            annotationDictionary["longitude"] = entry?.long
+            annotationDictionary["message"] = entry?.message
+            if let annotations = UserDefaults.standard.object(forKey: "annotationPins") {
+                annotationsArray = annotations as! [[String : Any]]
+            }
+            annotationsArray.append(annotationDictionary)
+            UserDefaults.standard.set(annotationsArray, forKey: "annotationPins")
             UserDefaults.standard.synchronize()
         }
     }
-
-    func loadLocations() {
-        if UserDefaults.standard.object(forKey: "locationArray") != nil {
-            for dict in UserDefaults.standard.object(forKey: "locationArray") as! [[String:Double]]{
-                locationArray.append(dict)
+    
+    func loadAnnotations() {
+        if let locations = UserDefaults.standard.object(forKey: "annotationPins") {
+            for dict in locations as! [AnyObject]{
+                annotationsArray.append(dict as! [String:Any])
+            }
+            for a in annotationsArray {
+                let makeAnno: MKPointAnnotation = MKPointAnnotation()
+                makeAnno.coordinate = CLLocationCoordinate2DMake(a["latitude"] as! CLLocationDegrees, a["longitude"] as! CLLocationDegrees)
+                makeAnno.title = a["message"] as! String?
+                points.append(makeAnno)
             }
         }
     }
+
+    func removeAllStoredAnnotations(){
+        UserDefaults.standard.removeObject(forKey: "annotationPins")
+        UserDefaults.standard.synchronize()
+    }
+    
+    //MAKR: Segment Control
+    @IBAction func mapTypeControl(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            mapView.mapType = .standard
+        case 1:
+            mapView.mapType = .hybrid
+        default:
+            mapView.mapType = .standard
+        }
+    }
+    @IBAction func resetPins(_ sender: UIButton) {
+        removeAllStoredAnnotations()
+        _ = navigationController?.popToRootViewController(animated: true)
+    }
 }
-
-

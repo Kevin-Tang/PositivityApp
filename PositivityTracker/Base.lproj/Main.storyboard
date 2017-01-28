@@ -23,7 +23,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kKn-3r-fbN" id="qRg-99-tw7">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Positive Message" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0u-et-Uwu">
@@ -79,11 +79,6 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Your Journal" id="jOV-2z-hKb">
-                        <barButtonItem key="leftBarButtonItem" title="Home" id="bBM-IC-R9d">
-                            <connections>
-                                <action selector="home:" destination="ehm-un-DzX" id="hX3-xI-QgL"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="GU0-rT-g0z">
                             <connections>
                                 <segue destination="UBH-6n-Mpx" kind="show" identifier="ShowMapSegue" id="jMB-xJ-CvP"/>
@@ -229,7 +224,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="8Co-g3-7GD" kind="show" identifier="addJournalSegue" id="K4X-nI-Dfa"/>
+                                    <segue destination="ehm-un-DzX" kind="show" identifier="addJournalSegue" id="Sqr-KJ-OU9"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cz9-5v-atW">
@@ -248,9 +243,10 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="How are you today?" id="0Qw-pH-sEU">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="8XB-oo-coL"/>
                         <barButtonItem key="rightBarButtonItem" title="Journal" id="Vuk-fw-nnQ">
                             <connections>
-                                <segue destination="8Co-g3-7GD" kind="show" id="oBz-Zg-Nmc"/>
+                                <segue destination="ehm-un-DzX" kind="show" id="qKG-hI-62S"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -289,7 +285,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2po-sN-RgL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="34"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
                                 <state key="normal" title="Continue">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -303,7 +299,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="rYl-ts-yYB"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="34"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
                                 <state key="normal" title="About Me">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -348,24 +344,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oMa-xX-YbC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1847.2" y="120.98950524737631"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qcr-Tz-JgF">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Co-g3-7GD" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="FUX-dg-YiY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ehm-un-DzX" kind="relationship" relationship="rootViewController" id="Nvw-bf-SGz"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iJD-dz-y3r" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3495.1999999999998" y="121.88905547226388"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="rZt-56-AdC">
@@ -424,6 +402,26 @@
                                     <outlet property="delegate" destination="UBH-6n-Mpx" id="kYU-Et-SPS"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K1D-BD-Ya9">
+                                <rect key="frame" x="16" y="617" width="81" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <state key="normal" title="Reset Pins"/>
+                                <connections>
+                                    <action selector="resetPins:" destination="UBH-6n-Mpx" eventType="touchUpInside" id="bWv-0L-QeP"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bordered" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5uq-b2-NpG">
+                                <rect key="frame" x="205" y="619" width="154" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Standard"/>
+                                    <segment title="Satelitte"/>
+                                </segments>
+                                <connections>
+                                    <action selector="mapTypeControl:" destination="UBH-6n-Mpx" eventType="valueChanged" id="UeY-Vb-Nd1"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -440,7 +438,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C36-xz-ODq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5207" y="887"/>
+            <point key="canvasLocation" x="5205.6000000000004" y="886.50674662668678"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vnE-Pq-GU7">
@@ -466,6 +464,6 @@
         <image name="goals" width="200" height="114"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="K4X-nI-Dfa"/>
+        <segue reference="Sqr-KJ-OU9"/>
     </inferredMetricsTieBreakers>
 </document>

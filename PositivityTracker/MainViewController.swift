@@ -84,7 +84,7 @@ class MainViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     func determineCurrentLocation() {
         locationManager = CLLocationManager()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         
         if CLLocationManager.locationServicesEnabled() {
@@ -97,23 +97,19 @@ class MainViewController: UIViewController, UITextFieldDelegate, CLLocationManag
     // This function passes information along to the next view in order to build a new object in the table
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "addJournalSegue" {
-            let nav = segue.destination as! UINavigationController
-            let entryView = nav.topViewController as! EntryTableViewController
+            let entryView = segue.destination as! EntryTableViewController
+            //let entryView = nav.topViewController as! EntryTableViewController
             
             let message = messageLabel.text
             let date = dateLabel.text
             let count = self.count
-            
-            entry = JournalEntry(message: message!, date: date!, count: count)
-            
-            entryView.newEntry = entry
-            
             // Stop updating location and send coordinates
             locationManager.stopUpdatingLocation()
             let lat = locationManager.location?.coordinate.latitude
             let long = locationManager.location?.coordinate.longitude
-            entryView.lat = lat!
-            entryView.long = long!
+            
+            entry = JournalEntry(message: message!, date: date!, count: count, lat: lat!, long: long!)
+            entryView.newEntry = entry
         }
     }
     

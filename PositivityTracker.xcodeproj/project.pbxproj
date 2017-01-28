@@ -35,7 +35,7 @@
 		42144A181E22E8150006D486 /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		42144A1E1E22F0ED0006D486 /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
-		423F0AD21E32A2B500A4F72B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		423F0AD21E32A2B500A4F72B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MapViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		424B93E31E2049820071E42C /* PositivityTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PositivityTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424B93E61E2049820071E42C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424B93E81E2049820071E42C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -91,15 +91,15 @@
 		424B93E51E2049820071E42C /* PositivityTracker */ = {
 			isa = PBXGroup;
 			children = (
-				4293AD011E24ABF60075210B /* Main.storyboard */,
-				42DF44FB1E38482B00F076C8 /* HomeViewController.swift */,
-				423F0AD21E32A2B500A4F72B /* MapViewController.swift */,
-				4293AD061E2594BA0075210B /* DetailViewController.swift */,
 				424B93E61E2049820071E42C /* AppDelegate.swift */,
 				42144A181E22E8150006D486 /* JournalEntry.swift */,
+				4293AD011E24ABF60075210B /* Main.storyboard */,
+				42DF44FB1E38482B00F076C8 /* HomeViewController.swift */,
 				424B93E81E2049820071E42C /* MainViewController.swift */,
-				42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */,
 				42144A1E1E22F0ED0006D486 /* EntryTableViewController.swift */,
+				42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */,
+				423F0AD21E32A2B500A4F72B /* MapViewController.swift */,
+				4293AD061E2594BA0075210B /* DetailViewController.swift */,
 				424B93F21E2049820071E42C /* Info.plist */,
 				42D561231E2AC1E700AE86DF /* Assets.xcassets */,
 			);

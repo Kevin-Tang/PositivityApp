@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import os
 
 class EntryTableViewController: UITableViewController{
@@ -14,8 +15,6 @@ class EntryTableViewController: UITableViewController{
     //MARK: Properties
     var journalEntries = [JournalEntry]()
     var newEntry: JournalEntry?
-    var lat: Double?
-    var long: Double?
     let detailSegueIdentifier = "ShowDetailSegue"
     let mapSegueIdentifier = "ShowMapSegue"
 
@@ -119,9 +118,11 @@ class EntryTableViewController: UITableViewController{
     */
    
     //MARK: Navigation
+    /*
     @IBAction func home(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+    */
     
     // This function passes data along to the detailView and mapView
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
@@ -137,9 +138,8 @@ class EntryTableViewController: UITableViewController{
         }
         if (segue.identifier == mapSegueIdentifier) {
             let destination = segue.destination as? MapViewController
-            destination?.lat = lat
-            destination?.long = long
-            os_log("lat and long sent!", log: OSLog.default, type: .debug)
+            destination?.entry = newEntry
+            os_log("Entry sent", log: OSLog.default, type: .debug)
         }
     }
     
@@ -155,15 +155,15 @@ class EntryTableViewController: UITableViewController{
         let date2 = "December 25, 2016"
         let date3 = "January 1, 2017"
         
-        guard let journal1 = JournalEntry(message: entry1, date: date1, count: 20) else {
+        guard let journal1 = JournalEntry(message: entry1, date: date1, count: 20, lat: 0, long: 0) else {
             fatalError("Unable to instantiate journal1")
         }
         
-        guard let journal2 = JournalEntry(message: entry2, date: date2, count: 25) else {
+        guard let journal2 = JournalEntry(message: entry2, date: date2, count: 25, lat: 0, long: 0) else {
             fatalError("Unable to instantiate journal2")
         }
         
-        guard let journal3 = JournalEntry(message: entry3, date: date3, count: 1) else {
+        guard let journal3 = JournalEntry(message: entry3, date: date3, count: 1, lat: 0, long: 0) else {
             fatalError("Unable to instantiate journal3")
         }
         
