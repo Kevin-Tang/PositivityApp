@@ -136,6 +136,9 @@ class MainViewController: UIViewController, UITextFieldDelegate, CLLocationManag
         UserDefaults.standard.set(count, forKey: "Count")
     }
     
+    @IBAction func dismissView(_ sender: UIBarButtonItem) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
 
     //MARK: Private Methods
     private func getDate() -> String {

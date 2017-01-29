@@ -10,6 +10,7 @@
 		42144A191E22E8150006D486 /* JournalEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42144A181E22E8150006D486 /* JournalEntry.swift */; };
 		42144A1B1E22EE8E0006D486 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */; };
 		42144A1F1E22F0ED0006D486 /* EntryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42144A1E1E22F0ED0006D486 /* EntryTableViewController.swift */; };
+		423D70F01E3D8E8800A034DB /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423D70EF1E3D8E8800A034DB /* AboutMeViewController.swift */; };
 		423F0AD31E32A2B500A4F72B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423F0AD21E32A2B500A4F72B /* MapViewController.swift */; };
 		424B93E71E2049820071E42C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93E61E2049820071E42C /* AppDelegate.swift */; };
 		424B93E91E2049820071E42C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424B93E81E2049820071E42C /* MainViewController.swift */; };
@@ -18,6 +19,8 @@
 		4293AD071E2594BA0075210B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4293AD061E2594BA0075210B /* DetailViewController.swift */; };
 		42D561241E2AC1E700AE86DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42D561231E2AC1E700AE86DF /* Assets.xcassets */; };
 		42DF44FC1E38482B00F076C8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF44FB1E38482B00F076C8 /* HomeViewController.swift */; };
+		42EB7DB51E3D625E00F14B58 /* WebView.html in Resources */ = {isa = PBXBuildFile; fileRef = 42EB7DB41E3D625E00F14B58 /* WebView.html */; };
+		42EB7DB71E3D626700F14B58 /* bighero6.gif in Resources */ = {isa = PBXBuildFile; fileRef = 42EB7DB61E3D626700F14B58 /* bighero6.gif */; };
 		42FA59AE1E328812008450D9 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FA59AD1E328812008450D9 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +38,7 @@
 		42144A181E22E8150006D486 /* JournalEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalEntry.swift; sourceTree = "<group>"; };
 		42144A1A1E22EE8E0006D486 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		42144A1E1E22F0ED0006D486 /* EntryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryTableViewController.swift; sourceTree = "<group>"; };
+		423D70EF1E3D8E8800A034DB /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMeViewController.swift; path = ../AboutMeViewController.swift; sourceTree = "<group>"; };
 		423F0AD21E32A2B500A4F72B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = MapViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		424B93E31E2049820071E42C /* PositivityTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PositivityTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424B93E61E2049820071E42C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +51,8 @@
 		4293AD061E2594BA0075210B /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		42D561231E2AC1E700AE86DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42DF44FB1E38482B00F076C8 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		42EB7DB41E3D625E00F14B58 /* WebView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = WebView.html; sourceTree = "<group>"; };
+		42EB7DB61E3D626700F14B58 /* bighero6.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = bighero6.gif; sourceTree = "<group>"; };
 		42FA59AD1E328812008450D9 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -91,6 +97,9 @@
 		424B93E51E2049820071E42C /* PositivityTracker */ = {
 			isa = PBXGroup;
 			children = (
+				42EB7DB41E3D625E00F14B58 /* WebView.html */,
+				42EB7DB61E3D626700F14B58 /* bighero6.gif */,
+				423D70EF1E3D8E8800A034DB /* AboutMeViewController.swift */,
 				424B93E61E2049820071E42C /* AppDelegate.swift */,
 				42144A181E22E8150006D486 /* JournalEntry.swift */,
 				4293AD011E24ABF60075210B /* Main.storyboard */,
@@ -214,6 +223,8 @@
 			files = (
 				4293AD031E24ABF60075210B /* Main.storyboard in Resources */,
 				42D561241E2AC1E700AE86DF /* Assets.xcassets in Resources */,
+				42EB7DB71E3D626700F14B58 /* bighero6.gif in Resources */,
+				42EB7DB51E3D625E00F14B58 /* WebView.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +249,7 @@
 				4293AD071E2594BA0075210B /* DetailViewController.swift in Sources */,
 				42144A1F1E22F0ED0006D486 /* EntryTableViewController.swift in Sources */,
 				424B93E71E2049820071E42C /* AppDelegate.swift in Sources */,
+				423D70F01E3D8E8800A034DB /* AboutMeViewController.swift in Sources */,
 				423F0AD31E32A2B500A4F72B /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
